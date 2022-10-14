@@ -1,4 +1,3 @@
-
 import ec2_scripts.create_an_ec2_instance as create_ec2
 import ec2_scripts.describe_all_ec2_instances as describe_ec2
 import ec2_scripts.restart_all_ec2_instances as restart_ec2
@@ -20,13 +19,13 @@ print(restart_response)
 print(stop_response)
 print(terminate_response)
 
-my_connection_instance = dict()
-my_connection_instance['hostname'] = "test_name"
-my_connection_instance['username'] = "test_name"
-my_connection_instance['password'] = "test_pass"
-my_connection_instance['ppk_file_path'] = "test_path"
-
-connect_ppk.run(my_connection_instance, 'ls')
+# my_connection_instance = dict()
+# my_connection_instance['hostname'] = "test_name"
+# my_connection_instance['username'] = "test_name"
+# my_connection_instance['password'] = "test_pass"
+# my_connection_instance['ppk_file_path'] = "test_path"
+#
+# connect_ppk.run(my_connection_instance, 'ls')
 
 
 
