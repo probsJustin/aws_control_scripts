@@ -1,14 +1,22 @@
 import boto3
+import constants
 
 def mprint(message):
     print(str(message).replace("'",'"'))
 
 ec2 = boto3.resource('ec2')
 instances = ec2.create_instances(
-        ImageId="ami-0f924dc71d44d23e2",
+        TagSpecifications=[{
+            "ResourceType": "instance",
+            "Tags":[{
+                "Key": "Name",
+                "Value": f'Deployment-App-{constants.APPLICATION_NAME}'
+            }]
+        }],
+        ImageId=f'{constants.AWS_LINUX_IMAGE_ID}',
         MinCount=1,
         MaxCount=1,
-        InstanceType="t2.micro",
-        KeyName="test"
+        InstanceType=f'{constants.AWS_INSTANCE_TYPE}',
+        KeyName=f'{constants.KEY_NAME}'
     )
 mprint(instances)
