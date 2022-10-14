@@ -1,5 +1,6 @@
 import boto3
-import constants
+from ec2_scripts import constants
+
 
 def mprint(message):
     print(str(message).replace("'",'"'))

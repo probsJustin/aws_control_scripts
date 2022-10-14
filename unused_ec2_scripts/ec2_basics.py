@@ -15,9 +15,7 @@ import time
 import urllib.request
 import boto3
 
-import ec2_setup
-import ec2_instance_management
-import ec2_teardown
+from unused_ec2_scripts import ec2_instance_management, ec2_teardown, ec2_setup
 
 logger = logging.getLogger(__name__)
 
