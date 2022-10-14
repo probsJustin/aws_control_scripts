@@ -9,16 +9,19 @@ import ec2_scripts.describe_ec2_instance_status as status_ec2
 import ec2_scripts.connect_with_ppk as connect_ppk
 import constants
 
+### create an instance
 #create_response = create_ec2.run(constants.APPLICATION_NAME, constants.AWS_LINUX_IMAGE_ID, constants.AWS_INSTANCE_TYPE, constants.KEY_NAME, [constants.AWS_DEPLOYMENT_SECURITY_GROUP])
 #print(create_response)
 
-describe_response = describe_ec2.run()
-ec2_instance = describe_ec2.find_instances_not_terminated(constants.APPLICATION_NAME)
-print(ec2_instance)
+### find the instance
+# describe_response = describe_ec2.run()
+# ec2_instance = describe_ec2.find_instances_not_terminated(constants.APPLICATION_NAME)
+# print(ec2_instance)
 
-for instance in ec2_instance:
-    instance_status = status_ec2.run(instance['InstanceId'])
-    print(instance_status)
+### check to see if the instance is running
+# for instance in ec2_instance:
+#     instance_status = status_ec2.run(instance['InstanceId'])
+#     print(instance_status)
 
 # my_connection_instance = dict()
 # my_connection_instance['hostname'] = f'{ec2_instance["PublicDnsName"]}'
