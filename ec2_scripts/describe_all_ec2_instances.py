@@ -40,3 +40,13 @@ def find_instances_not_terminated(ec2_name):
                 if (tag['Key'] == 'Name' and tag['Value'] == ec2_name and instances['State']['Name'] != "terminated"):
                     instances_to_return.append(instances)
     return instances_to_return
+
+
+def get_instance_status_running(tag_name):
+    describe_response = run()
+    ec2_instance = find_instances_not_terminated(tag_name)
+    for instance in ec2_instance:
+        if(instance['State']['Name'] == 'running'):
+            return True
+        else:
+            return False
