@@ -16,6 +16,7 @@ terminate_response = terminate_ec2.run()
 
 print(create_response)
 print(describe_response)
+print(restart_response)
 print(stop_response)
 print(terminate_response)
 
