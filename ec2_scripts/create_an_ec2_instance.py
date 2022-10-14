@@ -1,10 +1,8 @@
 import boto3
 
 
-def mprint(message):
-    print(str(message).replace("'",'"'))
 
-def run(application_name, image_id, instance_type, key_name):
+def run(application_name, image_id, instance_type, key_name, security_groups):
     if(application_name is None):
         raise Exception(f'Need to pass a application_name to create instance. Received: {application_name}')
     if(image_id is None):
@@ -20,14 +18,14 @@ def run(application_name, image_id, instance_type, key_name):
                 "ResourceType": "instance",
                 "Tags":[{
                     "Key": "Name",
-                    "Value": f'Deployment-App-{application_name}'
+                    "Value": f'{application_name}'
                 }]
             }],
             ImageId=f'{image_id}',
             MinCount=1,
             MaxCount=1,
             InstanceType=f'{instance_type}',
-            KeyName=f'{key_name}'
+            KeyName=f'{key_name}',
+            SecurityGroups=security_groups
         )
-    mprint(instances)
     return instances
