@@ -14,22 +14,27 @@ import constants
 #print(create_response)
 
 ### find the instance
-# describe_response = describe_ec2.run()
-# ec2_instance = describe_ec2.find_instances_not_terminated(constants.APPLICATION_NAME)
-# print(ec2_instance)
+describe_response = describe_ec2.run()
+ec2_instance = describe_ec2.find_instances_not_terminated(constants.APPLICATION_NAME)
+print(ec2_instance)
 
 ### check to see if the instance is running
 # for instance in ec2_instance:
 #     instance_status = status_ec2.run(instance['InstanceId'])
 #     print(instance_status)
 
-# my_connection_instance = dict()
-# my_connection_instance['hostname'] = f'{ec2_instance["PublicDnsName"]}'
-# my_connection_instance['username'] = "ec2-user"
-# my_connection_instance['password'] = ""
-# my_connection_instance['ppk_file_path'] = "/ppk/Deployment-Key-Pair-OpenSSH"
-#
-# print(connect_ppk.run(my_connection_instance, 'sudo apt-get -y install git '))
+my_connection_instance = dict()
+my_connection_instance['hostname'] = f'{ec2_instance[0]["PublicDnsName"]}'
+my_connection_instance['username'] = "ec2-user"
+my_connection_instance['password'] = ""
+my_connection_instance['ppk_file_path'] = "/ppk/Deployment-Key-Pair-OpenSSH"
+
+print(connect_ppk.run(my_connection_instance, 'git version'))
+print(connect_ppk.run(my_connection_instance, 'ls -la '))
+print(connect_ppk.run(my_connection_instance, 'git clone https://github.com/probsJustin/aws_control_scripts'))
+print(connect_ppk.run(my_connection_instance, 'ls -la ./aws_control_scripts '))
+
+
 
 
 
