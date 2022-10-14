@@ -30,6 +30,8 @@ my_connection_instance['password'] = ""
 my_connection_instance['ppk_file_path'] = "/ppk/Deployment-Key-Pair-OpenSSH"
 
 print(connect_ppk.run(my_connection_instance, 'git version'))
+print(connect_ppk.run(my_connection_instance, 'sudo yum -y install httpd'))
+print(connect_ppk.run(my_connection_instance, 'sudo systemctl start httpd'))
 print(connect_ppk.run(my_connection_instance, 'ls -la '))
 print(connect_ppk.run(my_connection_instance, 'git clone https://github.com/probsJustin/aws_control_scripts'))
 print(connect_ppk.run(my_connection_instance, 'ls -la ./aws_control_scripts '))
