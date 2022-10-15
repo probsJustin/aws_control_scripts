@@ -1,5 +1,5 @@
-# AWS Control Scripts:
-Aws Ec2 Instance Control Scripts/Examples with boto3
+# AWS EC2 Control Scripts:
+Aws EC2 Instance Control Scripts/Examples with boto3
 
 ### Documentation links: 
 [Code Catalog Examples From AWS](https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-python-example_code-ec2.html) \
