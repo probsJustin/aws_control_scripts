@@ -5,3 +5,6 @@ KEY_DIRECTORY = '../ssh_keys'
 AWS_LINUX_IMAGE_ID = 'ami-0f924dc71d44d23e2'
 AWS_INSTANCE_TYPE = 't2.micro'
 AWS_DEPLOYMENT_SECURITY_GROUP = 'Deployment-Security-Group-Testing'
+AWS_APPLICATION_URL = 'hagertydevstuff.com.'
+test_ip_address = "18.223.124.19"
+AWS_REGION = "us-east-2"

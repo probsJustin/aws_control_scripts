@@ -6,8 +6,10 @@ import ec2_scripts.stop_all_ec2_instances as stop_ec2
 import ec2_scripts.terminate_all_ec2_instances as terminate_ec2
 import ec2_scripts.describe_ec2_instance_status as status_ec2
 import ec2_scripts.waiter_ec2_instance as waiter_ec2
-import time
+import ec2_scripts.route_53_setup as route_53
 import ec2_scripts.connect_with_ppk as connect_ppk
+
+import time
 import constants
 
 if(describe_ec2.get_instance_status_running(constants.APPLICATION_NAME)):
@@ -28,6 +30,13 @@ print(f'If this timesout, you can re-run it when it gets to the sleeping part...
 waiter_ec2.wait_for_status_ok(ec2_instance[0]['InstanceId'])
 
 print(f'Waited for the ec2 instance to start.....')
+
+### Setting up route53 record
+
+print(f'Setting up route53 record entry for {constants.AWS_APPLICATION_URL}')
+
+route_53.update_route_53_record(constants.AWS_APPLICATION_URL, 'set_identifier_example', ec2_instance[0]['PublicIpAddress'])
+
 print(f'Creating Connection....')
 
 my_connection_instance = dict()
